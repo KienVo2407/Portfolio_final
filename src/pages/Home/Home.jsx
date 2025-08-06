@@ -13,6 +13,8 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Transition from "../../components/Transitition/Transition"
 import ReactLenis from "lenis/react";
 
+import BannerVideo from "../../../public/videos/hero-bg.mov"
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -225,7 +227,8 @@ const Home = () => {
       <div className="page home">
         <section className="hero">
           <div className="hero-img">
-            <img src="/about/baby.JPG" alt="Baby" />
+            {/* <img src="/about/baby.JPG" alt="Baby" /> */}
+            <video width="100%" src={BannerVideo} autoPlay muted loop></video>
           </div>
 
           <div className="hero-header">
