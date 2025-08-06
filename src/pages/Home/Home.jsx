@@ -240,7 +240,7 @@ const Home = () => {
 
         <section ref={stickyTitlesRef} className="sticky-titles">
           <div className="sticky-titles-nav">
-            <p className="primary sm">About Me</p>
+            <p className="primary sm">About Me!</p>
             <p className="primary sm">Marketing Through Storytelling</p>
           </div>
           <div className="sticky-titles-footer">
