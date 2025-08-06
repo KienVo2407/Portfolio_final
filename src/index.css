@@ -1,0 +1,196 @@
+@import './font.scss'; 
+
+:root {
+    --bg: #e3e3db;
+    --bg200: rgba(227, 227, 219, 0.25);
+    --fg: #0e0e0e;
+    --fg200: #1f1f1f; 
+    --hightlight: #800020;
+    /*--fg #0e0e0e */
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Satoshi';
+  background-color: var(--bg);
+  color: var(--fg);
+  overflow: hidden;
+}
+
+img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+h1,
+h2
+ {
+  text-transform: uppercase;
+  font-family: "Sentient";
+}
+
+h3,
+h4,
+h5 {
+  text-transform: uppercase;
+  font-family: "Ranade";
+  z-index: 4;
+}
+
+h1 {
+  font-size: 8vw;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 6.4vw;
+}
+
+h2 {
+  font-size: 5vw;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 4vw;
+}
+
+h3 {
+  font-size: 4vw;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 3.4vw;
+}
+h4 {
+  font-size: 2vw;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 2vw;
+}
+h5 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-family: "Satoshi";
+  font-size: 1rem;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+}
+
+p.primary{
+  text-transform: uppercase;
+  font-family: 'Ranade';
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+}
+
+p.secondary{
+  font-family: 'Satoshi';
+  font-size: 1rem;
+  font-weight: 600;
+ -webkit-font-smoothing: antialiased;
+}
+
+p.primary.sm {
+  text-transform: uppercase;
+  font-family: "Ranade";
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+}
+
+p.secondary.sm {
+  font-family: "Satoshi";
+  font-size: 0.8rem;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--fg);
+  font-family: "Ranade";
+  font-size: 0.8rem;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+input,
+textarea,
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 1em;
+  font-family: "Satoshi";
+  font-size: 1rem;
+  font-weight: 600;
+ -webkit-font-smoothing: antialiased;
+  border-radius: 0.5rem;
+}
+
+input::placeholder, textarea::placeholder {
+  font-family: 'Satoshi';
+  font-size: 1rem;
+  font-weight: 600;
+   -webkit-font-smoothing: antialiased;
+}
+
+.btn {
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  width: max-content;
+  padding: 1em 2em;
+  font-family: "Ranade";
+  font-size: 0.08rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  background-color: var(--fg);
+  color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  border-radius: 3px;
+}
+.hightlight{
+  color: #800020;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 14vw;
+    line-height: 12vw;
+  }
+
+  h2 {
+    font-size: 10vw;
+    line-height: 8vw;
+  }
+
+  h3 {
+    font-size: 8vw;
+    line-height: 7vw;
+  }
+
+  h4 {
+    font-size: 6vw;
+    line-height: 6vw;
+  }
+}

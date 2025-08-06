@@ -1,0 +1,273 @@
+// .page .about{
+//   position: relative;
+//   width: 100vw;
+//   height: 100svh;
+//   overflow: hidden;
+// //   display: flex;
+// //   align-items: flex-end;
+//   padding: 2em;
+// }
+ .about-header{
+    width: 100%;
+    margin-top: 8em;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+         position: relative;
+         left: -0.75vw;
+         font-size: 18vw;
+         line-height: 0.75;
+    }
+ }
+
+ .about-hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+    height: 100svh;
+    margin: 2em;
+    overflow: hidden;
+    border: 1px solid var(--fg);
+    border-radius: 2rem;
+    // box-shadow: ;
+ }
+
+ .about-hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+ }
+
+ .about-me-copy {
+    position: relative;
+    width: 100%;
+    padding: 4em 2em;
+ }
+
+ .about-me-copy-wrapper {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    gap: 3em;
+    flex-direction: column;
+
+    h3{
+     margin: 1em;
+     scale: 0.75;
+     
+    
+    }
+ }
+
+
+
+.about-me-copy-wrapper h3 {
+  font-size: 3vw;
+  letter-spacing: -0.02em;
+  line-height: 3vw;
+}
+
+
+
+.services {
+  width: 100vw;
+//   padding: 7rem 2rem;
+padding-top: 7em;
+  background-color: var(--fg);
+  color: var(--bg);
+//   position: relative;
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
+
+    .service-item {
+      flex-direction: column;
+      text-align: center;
+
+      .service-number {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .service-content {
+        padding-top: 0;
+
+        .service-header {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .service-details {
+          .service-image {
+            height: 200px;
+            margin-top: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+ .services-header {
+    margin-bottom: 4rem;
+    text-align: center;
+
+    h2 {
+      color: var(--bg);
+    }
+  }
+
+.services-list {
+    // max-width: 1200px;
+    margin: 0 auto;
+    width: 100vw;
+ }
+
+  .service-item {
+    height: 90vh; //adjust the height
+    width: 100%;
+    
+    align-items: center;
+    // padding: 3rem 0;
+    border-bottom: 1px solid rgba(227, 227, 219, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    
+
+    &:hover {
+      background-color: rgba(227, 227, 219, 0.05);
+    
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+  }
+    .service-number {
+    //   flex-shrink: 0;
+    //   margin-right: 4rem;
+      position: absolute;
+      left: 4%;
+      top: 45%;
+      transform: translateY(-50%);
+      z-index: 1;
+      h1 {
+        font-size: 30vw;
+        line-height: 0.8;
+        font-weight: 200;
+        color: var(--bg);
+        opacity: 0.9;
+        
+        @media (max-width: 1000px) {
+          font-size: 25vw;
+        }
+      }
+    }
+
+.service-content {
+    //   flex: 1;
+      max-width: 50%;
+    //   padding-top: 12rem;
+    //   position: relative;
+      display: flex;
+      flex-direction: column;
+     padding-top: 7em;
+     position: absolute;
+    //  left: 40%;
+     right: 4%;
+      top: 45%;
+      transform: translateY(-50%);
+     
+   
+}      
+     
+.service-header {
+        
+        // justify-content: space-between;
+        // align-items: flex-start;
+        margin-bottom: 1.5rem;
+
+        h3 {
+          color: var(--bg);
+          margin: 0;
+          font-size: 4.5vw;
+          line-height: 1;
+            }
+}
+
+.service-details {
+        p {
+          color: var(--bg);
+          opacity: 0.8;
+        //   margin-bottom: 1rem;
+          font-size: 1rem;
+          line-height: 1.6;
+     }
+ }
+
+ .service-image {
+        //   width: 60%;
+        //   height: 250px;
+        //   border-radius: 0.5rem;
+        //   overflow: hidden;
+        //   margin-top: 1.5rem;
+        //   position: relative;
+            width: 40%;
+            height: auto;
+            border-radius: 0.25rem;
+            overflow: hidden;
+            left: 30px;
+            margin-top: 2rem;
+          
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s ease, filter 0.3s ease;
+            opacity: 0.9;
+          }
+          
+          &:hover img {
+            transform: scale(1.05);
+            opacity: 1;
+            filter: brightness(1.1);
+          }
+          
+          // Optional: Add overlay effect
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+              135deg, 
+              rgba(128, 0, 32, 0.1) 0%, 
+              transparent 50%
+            );
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+          }
+          
+          &:hover::after {
+            opacity: 0;
+          }
+        }
+          
+       
+      
+      
+    
+  
+
+  
