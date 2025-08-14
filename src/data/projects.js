@@ -10,7 +10,7 @@ const projects = [
     id: 2,
     title: "KLVE",
     description: "The look that you happy with",
-    image: "/project/KLVE/Producttags.jpg",
+    image: "/project/KLVE/Banner.jpg",
     route: "/KLVEstudio",
   },
   {

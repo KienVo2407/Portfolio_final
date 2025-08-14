@@ -13,7 +13,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import Transition from "../../components/Transition/Transition"
 import ReactLenis from "lenis/react";
 
-import BannerVideo from "../../../public/videos/hero-bg.mov"
+import BannerVideo from "../../../public/videos/hero-bg.mp4"
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -272,7 +272,7 @@ const Home = () => {
             <p className="primary sm">Marketing Through Storytelling</p>
           </div>
           <div className="sticky-titles-footer">
-            <p className="primary sm">Storytelling Through Film</p>
+            <p className="primary sm">Storytelling Through Video</p>
             <p className="primary sm">Open to Collaborations</p>
           </div>
 

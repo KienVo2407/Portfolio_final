@@ -62,7 +62,7 @@ const About = () => {
                  
                  <section className="about-hero">
                     <div className="about-hero-img">
-                        <img src="/about/baby.JPG" alt="Baby" />
+                        <img src="/about/banner.jpg" alt="Baby" />
                     </div>
                  </section>
 
@@ -139,7 +139,7 @@ const About = () => {
                 </section> 
             </div>
             <Activities />
-            <FlyingText />
+            {/* <FlyingText /> */}
             <Footer />
       </ReactLenis>
     );

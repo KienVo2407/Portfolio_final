@@ -17,7 +17,7 @@ const workList = [
     id: 3,
     title: "Kajaa Advertisement",
     category: "Video directing",
-    image: "/project/RejuvMD/Banner.jpg",
+    image: "/project/KLVE/Banner.jpg",
     route: "/Kajaa",
   },
  {

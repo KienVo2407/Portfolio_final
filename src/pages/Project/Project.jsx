@@ -3,7 +3,7 @@ import "./Project.scss";
 
 import ParallaxImage from "../../components/ParallaxImage/ParallaxImage";
 import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
-
+import { Link } from "react-router-dom"; 
 import ReactLenis from "lenis/react";
 
 import Transition from "../../components/Transition/Transition"
@@ -172,12 +172,12 @@ const Project = () => {
 
                     <div className="next-project-img">
                         <div className="next-project-img-wrapper">
-                          <ParallaxImage src="/project/RejuvMD/Banner.jpg" alt="RejuvMD Banner" />
+                          <ParallaxImage src="/project/KLVE/Banner.jpg" alt="KLVE Banner" />
                         </div>
                     </div>
 
                     <AnimatedCopy tag="h4" animateOnScroll={true}>
-                        Market Pulse
+                        KLVE Branding
                     </AnimatedCopy>
                 </section>
              </div>

@@ -70,19 +70,71 @@ const Project2 = () => {
                             Kien Vo
                         </AnimatedCopy>
                     </div>
+                </section>
 
-                    <section>
-                        <div>
-                             <AnimatedCopy tag="h4" animateOnScroll={true} className="">
+                 <section className="branding-showcase">
+                    <div className="branding-header">
+                        <AnimatedCopy tag="h3" animateOnScroll={true}>
+                            Brand Evolution
+                        </AnimatedCopy>
+                    </div>
 
-                             </AnimatedCopy>
-                            <img src="/project/KLVE/" alt="" />
+                    <div className="branding-grid">
+                        {/* Logo Comparison Row */}
+                        <div className="logo-comparison">
+                            <div className="logo-item original">
+                                <div className="logo-content">
+                                    <AnimatedCopy tag="h4" animateOnScroll={true} className="logo-title">
+                                        Original Design
+                                    </AnimatedCopy>
+                                    <div className="logo-image-wrapper">
+                                        <img src="/project/KLVE/originallogo.jpg" alt="Original Logo Design" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="logo-item final">
+                                <div className="logo-content">
+                                    <AnimatedCopy tag="h4" animateOnScroll={true} className="logo-title">
+                                        Final Logo
+                                    </AnimatedCopy>
+                                    <div className="logo-image-wrapper featured">
+                                        <img src="/project/KLVE/Logo.jpg" alt="Final Logo Design" />
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+
+                        {/* Logo Variations */}
+                        <div className="logo-variations">
+                            <div className="variation-header">
+                                <AnimatedCopy tag="h4" animateOnScroll={true}>
+                                    Logo Variations
+                                </AnimatedCopy>
+                            </div>
+                            <div className="variation-image-wrapper">
+                                <img src="/project/KLVE/Differentlogo.jpg" alt="Logo Variations" />
+                            </div>
                         </div>
-                    </section>
+
+                        {/* Brand Colors */}
+                        <div className="brand-colors">
+                            <div className="colors-header">
+                                <AnimatedCopy tag="h4" animateOnScroll={true}>
+                                    Brand Color Palette
+                                </AnimatedCopy>
+                            </div>
+                            <div className="colors-image-wrapper">
+                                <img src="/project/KLVE/color.jpg" alt="Brand Color Palette" />
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
           </div>
+        <Footer />
         </ReactLenis>
+       
     );
 };
 

@@ -1,20 +1,33 @@
-photo-slide {
-width: 60px;
-aspect-ratio: 1 / 1;
-overflow: hidden;
-flex-shrink: 0;
-border-top: solid 15px #fff;
-border-bottom: solid 15px #fff;
-// scale:0.1;
-gap: 3px
-}
-
-.photo-slide img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-}
 .photo-gallery-wrapper {
+  width: 100%;
+  padding: 1rem 0;
+  overflow: hidden;
 
-overflow: hidden;
+  .splide__slide {
+    width: auto !important; // overrides splide's default fixed width
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem; // ⬅️ this adds horizontal gap between slides
+  }
+
+  .photo-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+    img {
+      width: 60px; // ⬅️ reduce this to scale down logo
+      height: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        filter: grayscale(0%);
+      }
+    }
+  }
 }
