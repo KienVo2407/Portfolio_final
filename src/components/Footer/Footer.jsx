@@ -49,7 +49,7 @@ const Footer = () => {
                          <span>&#8594;</span>
                     </Link>
 
-                    <Link to="/work" className="footer-nav-item">
+                    <Link to="/about" className="footer-nav-item">
                         <span>About</span>
                         <span>&#8594;</span>
                     </Link>

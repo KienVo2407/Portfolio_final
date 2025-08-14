@@ -6,7 +6,7 @@ import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
 
 import ReactLenis from "lenis/react";
 
-import Transition from "../../components/Transitition/Transition"
+import Transition from "../../components/Transition/Transition"
 import Footer from "../../components/Footer/Footer";
 
 const Project = () => {

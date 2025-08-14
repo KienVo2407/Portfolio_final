@@ -148,9 +148,10 @@
         will-change: transform;
        
 
-        a{
+        a, .menu-link{
             position: relative;
-            color: var(--bg);
+            color: gainsboro;
+            opacity: 0.8;
             font-family:"Ranade", sans-serif;
             font-weight: 700;
             font-size: 7vw;
@@ -159,6 +160,11 @@
             line-height: 80%;
             transition: color 0.3s;
            
+        }
+
+        &:hover a,
+        &:hover .menu-link {
+            color: rgba(255, 255, 255, 1) !important;
         }
 
     }

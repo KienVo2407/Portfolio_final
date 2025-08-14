@@ -1,0 +1,246 @@
+.activities {
+  width: 100%;
+  padding: 8rem 2rem;
+  background-color: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; // Prevent images from showing outside during animation
+}
+
+.activities-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.activities-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  h2 {
+    font-size: 4vw;
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--fg);
+    margin: 0;
+    
+    &.highlight {
+      font-weight: 600;
+      color: var(--fg);
+    }
+  }
+}
+
+.activities-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.activity-item {
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  will-change: transform; // Optimize for animations
+  
+  .activity-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(14, 14, 14, 0.1); // Add subtle shadow
+    transition: box-shadow 0.3s ease;
+  }
+  
+  &:hover .activity-image-wrapper {
+    box-shadow: 0 8px 30px rgba(14, 14, 14, 0.2);
+  }
+  
+  .activity-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    will-change: transform;
+  }
+  
+  .activity-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(14, 14, 14, 0.8) 0%,
+      rgba(14, 14, 14, 0.4) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    backdrop-filter: blur(2px);
+    
+    .activity-type {
+      color: var(--bg);
+      font-family: 'Ranade', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transform: translateY(10px);
+      transition: transform 0.3s ease;
+    }
+  }
+  
+  &:hover .activity-overlay .activity-type {
+    transform: translateY(0);
+  }
+}
+
+// Labels with arrows
+.activity-label {
+  position: absolute;
+  font-family: 'Ranade', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+  
+  .label-text {
+    background-color: var(--bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--fg200);
+    box-shadow: 0 2px 8px rgba(14, 14, 14, 0.1);
+  }
+  
+  .label-arrow {
+    width: 40px;
+    height: 2px;
+    background-color: var(--fg);
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      top: -3px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid var(--fg);
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+    }
+  }
+}
+
+.actor-label {
+  top: -2rem;
+  right: 12%;
+  
+  .actor-arrow {
+    transform: rotate(45deg);
+  }
+}
+
+.badminton-label {
+  bottom: -2rem;
+  right: 8%;
+  
+  .badminton-arrow {
+    transform: rotate(-45deg);
+  }
+}
+
+// Responsive design
+@media (max-width: 1000px) {
+  .activities {
+    padding: 6rem 1.5rem;
+  }
+  
+  .activities-title h2 {
+    font-size: 8vw;
+  }
+  
+  .activities-grid {
+    gap: 1rem;
+    max-width: 600px;
+  }
+  
+  .activity-label {
+    font-size: 0.9rem;
+    
+    .label-arrow {
+      width: 30px;
+    }
+  }
+  
+  .actor-label {
+    top: -1.5rem;
+    right: 8%;
+  }
+  
+  .badminton-label {
+    bottom: -1.5rem;
+    right: 4%;
+  }
+}
+
+@media (max-width: 768px) {
+  .activities {
+    padding: 4rem 1rem;
+  }
+  
+  .activities-title {
+    margin-bottom: 3rem;
+    
+    h2 {
+      font-size: 10vw;
+    }
+  }
+  
+  .activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0.75rem;
+    max-width: 400px;
+  }
+  
+  .activity-label {
+    font-size: 0.8rem;
+    position: static;
+    margin-top: 1rem;
+    justify-content: center;
+    
+    .label-arrow {
+      display: none;
+    }
+  }
+  
+  .actor-label,
+  .badminton-label {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .activities-grid {
+    max-width: 300px;
+    gap: 0.5rem;
+  }
+  
+  .activities-title h2 {
+    font-size: 12vw;
+  }
+}

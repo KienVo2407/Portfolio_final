@@ -4,24 +4,28 @@ const workList = [
     title:"Rejuvenation Dermatologist",
     category: "Branding + Social Media Marketing",
     image: "/project/RejuvMD/Banner.jpg",
+    route: "/RejuvMD"
   },
   {
     id: 2,
     title: "KLVE: New era of fashion",
     category: "Branding + Marketing",
-    image: "/project/RejuvMD/Banner.jpg",
+    image: "/project/KLVE/Producttags.jpg",
+    route: "/KLVEstudio",
   },
   {
     id: 3,
-    title: "Landmark Website",
-    category: "UI/UX",
+    title: "Kajaa Advertisement",
+    category: "Video directing",
     image: "/project/RejuvMD/Banner.jpg",
+    route: "/Kajaa",
   },
  {
-    id: 3,
+    id: 4,
     title: "Landmark Website",
     category: "UI/UX",
     image: "/project/RejuvMD/Banner.jpg",
+    route: "/Landmark"
   },
 ];
 export default workList;

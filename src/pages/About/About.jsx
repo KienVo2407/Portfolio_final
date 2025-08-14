@@ -1,9 +1,13 @@
 import React, {useRef} from "react";
 import "./About.scss"
 
-import Transition from "../../components/Transitition/Transition";
+import Transition from "../../components/Transition/Transition";
 import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
 import Footer from "../../components/Footer/Footer";
+import FlyingText from "../../components/FlyingText/FlyingText";
+import ShinyText from "../../components/ShinyText/ShinyText";
+import Activities from "../../components/Activities/Activities";
+import SkillGallery from "../../components/SkillGallery/SkillGallery";
 
 import ReactLenis from "lenis/react";
 import { image, img } from "framer-motion/client";
@@ -23,13 +27,13 @@ const About = () => {
       number: '02',
       title: 'MARKETING',
       description: 'Creating visual identities that resonate with your audience and communicate your brand values through strategic design solutions.',
-      image: '/project/Design/cocktailposter.jpg'
+      image: '/project/Design/jelwery.jpg'
     },
     {
       number: '03',
       title: 'VIDEO PLANNING & EDITING',
       description: 'Crafting immersive visual experiences that push the boundaries of digital storytelling and user interaction.',
-      image: '/project/Design/cocktailposter.jpg'
+      image: '/project/Design/cocktail.jpg'
     },
     {
       number: '04',
@@ -47,7 +51,9 @@ const About = () => {
             <div className="page about">
                 <section className="about-header">
                     <AnimatedCopy animateOnScroll={false} delay={0.5} tag="h1">
-                        Est
+                        {/* <ShinyText text= "EST"></ShinyText> */}
+                        EST
+                        
                     </AnimatedCopy>
                      <AnimatedCopy animateOnScroll={false} delay={0.5} tag="h1">
                         2005
@@ -62,6 +68,9 @@ const About = () => {
 
                  <section className="about-me-copy">
                     <div className="about-me-copy-wrapper">
+                        {/* <AnimatedCopy animateOnScroll={true} tag="h2">
+                            Adapility
+                        </AnimatedCopy> */}
                         <AnimatedCopy animateOnScroll={true} tag="h3">
                             Hi I'm Kien - A CREATIVE MIND BLENDING DESIGN, STRATEGY, AND STORYTELLING. 
                             I BUILD BOLD VISUALS AND MEANINGFUL EXPERIENCES THAT CONNECT PEOPLE AND 
@@ -81,6 +90,8 @@ const About = () => {
                     </div>
 
                  </section>
+                
+                <SkillGallery />
 
                  <section className="services">
                     <div className="services-header">
@@ -127,6 +138,8 @@ const About = () => {
                     </div>
                 </section> 
             </div>
+            <Activities />
+            <FlyingText />
             <Footer />
       </ReactLenis>
     );

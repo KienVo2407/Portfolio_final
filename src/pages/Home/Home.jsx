@@ -10,7 +10,7 @@ import Footer from "../../components/Footer/Footer";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Transition from "../../components/Transitition/Transition"
+import Transition from "../../components/Transition/Transition"
 import ReactLenis from "lenis/react";
 
 import BannerVideo from "../../../public/videos/hero-bg.mov"
@@ -26,6 +26,7 @@ const Home = () => {
   const titlesRef = useRef([]);
   const stickyWorkHeaderRef = useRef(null);
   const homeWorkRef = useRef(null);
+  const scrollIndicatorRef = useRef(null);
   //  const leftImagesRef = useRef([]); 
   // const rightImagesRef = useRef([]);
 
@@ -51,6 +52,30 @@ const Home = () => {
     // Set initial states for images (hidden and positioned off-screen)
     // gsap.set(leftImages, { opacity: 0, x: -100, scale: 0.8 });
     // gsap.set(rightImages, { opacity: 0, x: 100, scale: 0.8 });
+
+    // Add scroll indicator animation
+    const scrollIndicator = scrollIndicatorRef.current;
+    if (scrollIndicator) {
+      // Animate the scroll indicator
+      gsap.to(scrollIndicator, {
+        y: 10,
+        duration: 1.5,
+        ease: "power2.inOut",
+        repeat: -1,
+        yoyo: true
+      });
+
+      // Fade out scroll indicator as user scrolls
+      gsap.to(scrollIndicator, {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: stickySection,
+          start: "top top",
+          end: "+=100",
+          scrub: true
+        }
+      });
+    }
 
     const pinTrigger = ScrollTrigger.create({
       trigger: stickySection,
@@ -287,6 +312,13 @@ const Home = () => {
             This portfolio is a glimpse into work and life story
           </h2>
 
+           {/* scroll indicator */}
+          <div ref={scrollIndicatorRef} className="scroll-indicator">
+            <div className="scroll-icon">
+              <div className="scroll-wheel"></div>
+            </div>
+            <p className="primary sm">Scroll to explore</p>
+          </div>
           
         </section>
 
@@ -301,7 +333,7 @@ const Home = () => {
           <div className="home-work-list">
             {workItems.map((work, index) => (
               <Link
-                to="/RejuvMD"
+                to={work.route || "RejuvMD"}
                 key={work.id}
                 className="home-work-item"
               >
@@ -351,7 +383,7 @@ const Home = () => {
           </div>
         </div>
         </section>
-
+      <Reviews />
       <ContactForm />
       <Footer />      
       </div>
