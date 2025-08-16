@@ -15,17 +15,17 @@ const workList = [
   },
   {
     id: 3,
-    title: "Kajaa Advertisement",
-    category: "Video directing",
-    image: "/project/KLVE/Banner.jpg",
-    route: "/Kajaa",
+    title: "Landmark Website",
+    category: "UI/UX",
+    image: "/project/Landmark/banner.png",
+    route: "/Landmark",
   },
  {
     id: 4,
-    title: "Landmark Website",
+    title: "Reverb",
     category: "UI/UX",
-    image: "/project/RejuvMD/Banner.jpg",
-    route: "/Landmark"
+    image: "/project/Lankmark/banner.png",
+    route: "/Reverb"
   },
 ];
 export default workList;

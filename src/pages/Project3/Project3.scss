@@ -1,0 +1,248 @@
+// Project3 specific styles
+.project3 {
+  
+  // Problem Section
+  .problem-section {
+    padding: 8rem 4rem;
+    
+    .problem-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .problem-text {
+      h3 {
+        margin-bottom: 2rem;
+        color: var(--fg);
+      }
+      
+      .problem-intro {
+        font-weight: 600;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+      
+      .problem-list {
+        margin: 2rem 0;
+        
+        p {
+          margin-bottom: 0.8rem;
+          font-size: 1rem;
+          line-height: 1.5;
+          padding-left: 1rem;
+        }
+      }
+      
+      .problem-note {
+        font-style: italic;
+        color: var(--fg200);
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+    }
+    
+    .problem-image {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  // Solution Section
+  .solution-section {
+    padding: 8rem 4rem;
+    background-color: var(--bg200);
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      color: var(--fg);
+    }
+    
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .solution-item {
+      background: var(--bg);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--fg200);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .primary.sm {
+        color: var(--hightlight);
+        margin-bottom: 1rem;
+      }
+      
+      .solution-description {
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        color: var(--fg200);
+      }
+      
+      .solution-image {
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 0.25rem;
+        }
+      }
+    }
+  }
+
+  // Wireframe Section
+  .wireframe-section {
+    padding: 8rem 4rem;
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      color: var(--fg);
+    }
+    
+    .wireframe-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .wireframe-item {
+      h4 {
+        margin-bottom: 2rem;
+        color: var(--hightlight);
+      }
+      
+      .figma-embed {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; // 16:9 aspect ratio
+        border-radius: 0.5rem;
+        overflow: hidden;
+        border: 1px solid var(--fg200);
+        
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+      }
+    }
+  }
+
+  // Prototype Section
+  .prototype-section {
+    padding: 8rem 4rem;
+    background-color: var(--bg200);
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--fg);
+    }
+    
+    .prototype-description {
+      text-align: center;
+      margin-bottom: 4rem;
+      color: var(--fg200);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    
+    .prototype-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 700px;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      border: 1px solid var(--fg200);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 1000px) {
+    .problem-section {
+      padding: 4rem 2rem;
+      
+      .problem-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+    
+    .solution-section {
+      padding: 4rem 2rem;
+      
+      .solution-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+    
+    .wireframe-section {
+      padding: 4rem 2rem;
+      
+      .wireframe-container {
+        gap: 3rem;
+      }
+    }
+    
+    .prototype-section {
+      padding: 4rem 2rem;
+      
+      .prototype-container {
+        height: 500px;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .problem-section,
+    .solution-section,
+    .wireframe-section,
+    .prototype-section {
+      padding: 3rem 1rem;
+    }
+    
+    .solution-item {
+      padding: 1.5rem;
+    }
+    
+    .prototype-container {
+      height: 400px;
+    }
+  }
+}

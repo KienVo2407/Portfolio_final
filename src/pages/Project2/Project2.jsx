@@ -20,10 +20,10 @@ const Project2 = () => {
                         animateOnScroll={false}
                         className="primary sm"
                     >
-                        Rebranding and Social Media planning 
+                        Rebranding and Marketing Media planning 
                     </AnimatedCopy>
                     <AnimatedCopy tag="h2" delay={1}>
-                        Rejuvenation Dermatologist New Look  
+                        The look that you are confident with
                     </AnimatedCopy>
                 </section>
 
@@ -39,8 +39,8 @@ const Project2 = () => {
                             Overview
                         </AnimatedCopy>
                         <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            This project aimed to elevate Rejuvenation Dermatology Burnaby’s brand with a modern, cohesive visual 
-                            identity that supports both marketing and customer experience
+                            KLVE studio – A contemporary fashion brand founded by Kien Vo,
+                             designed for those who dare to stand out. With bold styles, dynamic shapes, and vibrant colors, this brand redefines fashion as an art that reflects individuality and confidence.
                         </AnimatedCopy>
                     </div>
 
@@ -75,7 +75,7 @@ const Project2 = () => {
                  <section className="branding-showcase">
                     <div className="branding-header">
                         <AnimatedCopy tag="h3" animateOnScroll={true}>
-                            Brand Evolution
+                           New Brand
                         </AnimatedCopy>
                     </div>
 

@@ -51,7 +51,6 @@ const About = () => {
             <div className="page about">
                 <section className="about-header">
                     <AnimatedCopy animateOnScroll={false} delay={0.5} tag="h1">
-                        {/* <ShinyText text= "EST"></ShinyText> */}
                         EST
                         
                     </AnimatedCopy>

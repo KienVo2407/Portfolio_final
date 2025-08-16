@@ -9,6 +9,7 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Project from "./pages/Project/Project";
 import Project2 from "./pages/Project2/Project2";
+import Project3 from "./pages/Project3/Project3";
 
 
 import { AnimatePresence } from "framer-motion";
@@ -41,6 +42,7 @@ import { useEffect } from "react";
                     <Route path="/contact" element={<Contact />}/>
                     <Route path="/RejuvMD" element={<Project />} />
                     <Route path="/KLVEstudio" element={<Project2 />} />
+                    <Route path="/Landmark" element={<Project3 />}/>
                 </Routes>
                
             </AnimatePresence>
