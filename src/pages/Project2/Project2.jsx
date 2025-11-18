@@ -75,7 +75,11 @@ const Project2 = () => {
                  <section className="branding-showcase">
                     <div className="branding-header">
                         <AnimatedCopy tag="h3" animateOnScroll={true}>
+<<<<<<< Updated upstream
                            New Brand
+=======
+                            Brand Evolution
+>>>>>>> Stashed changes
                         </AnimatedCopy>
                     </div>
 

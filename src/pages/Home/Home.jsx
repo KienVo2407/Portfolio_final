@@ -7,6 +7,7 @@ import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
 import Reviews from "../../components/Reviews/Reviews";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import Footer from "../../components/Footer/Footer";
+import FilterGallery from "../../components/FilterGallery/FilterGallery";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -350,39 +351,11 @@ const Home = () => {
             ))}
           </div>
         </section>
-
+      
+        <FilterGallery /> 
         
 
-        <section className="hobbies">
-            <div className="hobbies-title">
-            <AnimatedCopy tag="h1" animateOnScroll="true">
-            Hobbies
-          </AnimatedCopy>
-          </div>
-
-          <div className="hobbies-grid">
-          <div className="hobby" id="camera">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Filming
-            </AnimatedCopy>
-          </div>
-          <div className="hobby" id="planning">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Planning
-            </AnimatedCopy>
-          </div>
-          <div className="hobby" id="story">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Story
-            </AnimatedCopy>
-          </div>
-          <div className="hobby" id="marketing">
-            <AnimatedCopy tag="h4" animateOnScroll={true}>
-              Fashion
-            </AnimatedCopy>
-          </div>
-        </div>
-        </section>
+        
       <Reviews />
       <ContactForm />
       <Footer />      

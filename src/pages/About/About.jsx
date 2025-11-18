@@ -137,6 +137,36 @@ const About = () => {
                     </div>
                 </section> 
             </div>
+            <section className="hobbies">
+            <div className="hobbies-title">
+                <AnimatedCopy tag="h1" animateOnScroll="true">
+                     Hobbies
+                </AnimatedCopy>
+            </div>
+
+          <div className="hobbies-grid">
+          <div className="hobby" id="camera">
+            <AnimatedCopy tag="h4" animateOnScroll={true}>
+              Filming
+            </AnimatedCopy>
+          </div>
+          <div className="hobby" id="planning">
+            <AnimatedCopy tag="h4" animateOnScroll={true}>
+              Planning
+            </AnimatedCopy>
+          </div>
+          <div className="hobby" id="story">
+            <AnimatedCopy tag="h4" animateOnScroll={true}>
+              Story
+            </AnimatedCopy>
+          </div>
+          <div className="hobby" id="marketing">
+            <AnimatedCopy tag="h4" animateOnScroll={true}>
+              Fashion
+            </AnimatedCopy>
+          </div>
+        </div>
+        </section>
             <Activities />
             {/* <FlyingText /> */}
             <Footer />

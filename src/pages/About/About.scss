@@ -264,9 +264,123 @@ padding-top: 7em;
           }
         }
           
-       
+hobbies {
+  width: 100vw;
+  padding: 4em;
+  
+  display: flex;
+  gap: 1em;
+  background-color: var(--fg200);
+  flex-direction: column;
+
+  .hobbies-title {
+    text-align: center;
+    padding-top: -0.01em;
+    h1{
+        font-size: 4vw ;
+        font-weight: 400;
+        font-style: italic;
+        color: var(--bg);
+    }
+  }
+  
+}
+
+ .hobbies-grid {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+.hobby {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  aspect-ratio: 1;
+  border: 1px dashed var(--bg);
+  border-radius: 1em;
+
+  h4 {
+    color: var(--bg);
+    font-weight: 500;
+  }
+}
+
+#camera {
+    background-image: url("/public/home/Hobbies/camera.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+
+#planning {
+    background-image: url("/public/home/Hobbies/planning.jpg");
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+#story {
+   
+    background-image: url("/public/home/Hobbies/storytelling.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+#marketing {
+    background-image: url("/public/home/Hobbies/marketing.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+#camera::after, #planning::after, #story::after, #marketing::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); // 0.5 = 50% dark
+  z-index: 1;
+}     
       
-      
+  @media (max-width: 1000px) {
+  
+  .hobbies {
+    padding: 1.25em;
+  }
+  .hobbies {
+    padding-bottom: 0;
+  }
+
+  .hobbies {
+    flex-direction: column;
+    gap: 1.25em;
+  }
+
+  .hobby {
+    aspect-ratio: 5/3;
+  }
+}
+
+
     
   
 

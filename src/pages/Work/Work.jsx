@@ -1,176 +1,111 @@
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "lenis";
 import projects from "../../data/projects";
-import React, { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import "./Work.scss";
 
-import { gsap } from "gsap";
-
-import Transition from "../../components/Transition/Transition"
-
-const Work = () => {
-    const [activeProject, setActiveProject] = useState(projects[0]);
-    const carouselDescriptionRef = useRef(null);
-    const carouselTitleRef = useRef(null);
-    const workSliderImgRef = useRef(null)
-    const descriptionTextRef = useRef(null);
-    const titleTextRef = useRef(null);
-    const imageRef = useRef(null);
-    const navigate = useNavigate();
-
-    const animateCarouselInfo = (newProject) => {
-        const tl = gsap.timeline();
-
- tl.to([descriptionTextRef.current, titleTextRef.current], {
-      yPercent: -100,
-      duration: 0.75,
-      stagger: 0.25,
-      ease: "power4.in",
-    });
-
-    tl.to(
-      imageRef.current,
-      {
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.in",
-        onComplete: () => {
-          if (descriptionTextRef.current) descriptionTextRef.current.remove();
-          if (titleTextRef.current && titleTextRef.current.parentNode) {
-            titleTextRef.current.parentNode.remove();
-          }
-          if (imageRef.current) imageRef.current.remove();
-
-          const newDescriptionEl = document.createElement("p");
-          newDescriptionEl.className = "primary sm";
-          newDescriptionEl.textContent = newProject.description;
-
-          const titleContainer = document.createElement("div");
-          titleContainer.className = "project-title-container";
-          titleContainer.style.cursor = "pointer";
-
-          const newTitleEl = document.createElement("h1");
-          newTitleEl.textContent = newProject.title;
-
-          titleContainer.onclick = () => navigate(newProject.route || `/${newProject.title.toLowerCase().replace(/\s+/g, '-')}`);
-
-          titleContainer.appendChild(newTitleEl);
-
-          const newImageEl = document.createElement("img");
-          newImageEl.src = newProject.image;
-          newImageEl.alt = newProject.title;
-
-          gsap.set(newDescriptionEl, { yPercent: 100 });
-          gsap.set(newTitleEl, { yPercent: 100 });
-          gsap.set(newImageEl, { opacity: 0 });
-
-          carouselDescriptionRef.current.appendChild(newDescriptionEl);
-          carouselTitleRef.current.appendChild(titleContainer);
-          workSliderImgRef.current.appendChild(newImageEl);
-
-          descriptionTextRef.current = newDescriptionEl;
-          titleTextRef.current = newTitleEl;
-          imageRef.current = newImageEl;
-
-          const inTl = gsap.timeline();
-
-          inTl.to(newImageEl, {
-            opacity: 1,
-            duration: 0.75,
-            ease: "power2.out",
-          });
-
-          inTl.to(
-            [newDescriptionEl, newTitleEl],
-            {
-              yPercent: 0,
-              duration: 0.75,
-              stagger: 0.25,
-              ease: "power4.out",
-            },
-            "-=0.5"
-          );
-          setActiveProject(newProject);
-        },
-      },
-      "-=0.5"
-    );
-  };
+export default function Work() {
+  const workContainer = useRef(null);
 
   useEffect(() => {
-    if (
-      carouselDescriptionRef.current &&
-      carouselTitleRef.current &&
-      workSliderImgRef.current
-    ) {
-      descriptionTextRef.current =
-        carouselDescriptionRef.current.querySelector("p");
+    gsap.registerPlugin(ScrollTrigger);
 
-      const initialTitleLink = carouselTitleRef.current.querySelector("a");
-      if (initialTitleLink) {
-        const initialTitle = initialTitleLink.querySelector("h1");
+    // ✅ Initialize Lenis (smooth scroll)
+    const lenis = new Lenis({
+      smooth: true,
+      lerp: 0.1,
+    });
 
-        const titleContainer = document.createElement("div");
-        titleContainer.className = "project-title-container";
-        titleContainer.style.cursor = "pointer";
-
-        const newTitle = initialTitle.cloneNode(true);
-        titleContainer.appendChild(newTitle);
-
-        titleContainer.onclick = () => navigate(activeProject.route || `/${activeProject.title.toLowerCase().replace(/\s+/g, '-')}`);
-
-        initialTitleLink.parentNode.replaceChild(
-          titleContainer,
-          initialTitleLink
-        );
-
-        titleTextRef.current = newTitle;
-      } else {
-        titleTextRef.current = carouselTitleRef.current.querySelector("h1");
-      }
-
-      imageRef.current = workSliderImgRef.current.querySelector("img");
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
     }
-  }, [navigate]);
+    requestAnimationFrame(raf);
 
-  const handleWorkItemClick = (project) => {
-    if (project.id !== activeProject.id) {
-      animateCarouselInfo(project);
+    // ✅ Build project elements
+    const container = workContainer.current;
+    if (!container) return;
+    container.innerHTML = "";
+
+    const createWorkItem = (project) => {
+      const div = document.createElement("div");
+      div.className = "work-item";
+      div.innerHTML = `
+        <a href="${project.route}" class="work-item-link">
+          <div class="work-item-img">
+            <img src="${project.image}" alt="${project.title}" />
+          </div>
+          <div class="work-item-copy">
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+          </div>
+        </a>
+      `;
+      return div;
+    };
+
+    // ✅ Build rows (2 per row)
+    for (let i = 0; i < projects.length; i += 2) {
+      const row = document.createElement("div");
+      row.className = "row";
+      row.appendChild(createWorkItem(projects[i]));
+      if (projects[i + 1]) row.appendChild(createWorkItem(projects[i + 1]));
+      container.appendChild(row);
     }
-  };
+
+    // ✅ GSAP Animation after DOM render
+    const rows = container.querySelectorAll(".row");
+    gsap.set(".work-item", { y: 1000 });
+
+    rows.forEach((row) => {
+      const items = row.querySelectorAll(".work-item");
+
+      items.forEach((item, i) => {
+        const isLeft = i === 0;
+        gsap.set(item, {
+          rotation: isLeft ? -60 : 60,
+          transformOrigin: "center center",
+        });
+      });
+
+      ScrollTrigger.create({
+        trigger: row,
+        start: "top 75%",
+        onEnter: () => {
+          gsap.to(items, {
+            y: 0,
+            rotation: 0,
+            duration: 1,
+            ease: "power4.out",
+            stagger: 0.25,
+          });
+        },
+      });
+    });
+
+    // ✅ Important: Refresh ScrollTrigger after layout
+    ScrollTrigger.refresh();
+
+    // Cleanup
+    return () => {
+      lenis.destroy();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   return (
-    <div className="page work">
-      <div className="work-carousel">
-        <div className="work-slider-img" ref={workSliderImgRef}>
-          <img src={activeProject.image} alt={activeProject.title} />
-        </div>
+    <div className="work-page">
+      <header>
+        <h1>Featured Work</h1>
+      </header>
 
-        <div className="work-items-preview-container">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className={`work-item ${
-                activeProject.id === project.id ? "active" : ""
-              }`}
-              onClick={() => handleWorkItemClick(project)}
-            >
-              <img src={project.image} alt={project.title} />
-            </div>
-          ))}
-        </div>
+      <section ref={workContainer} className="work"></section>
 
-        <div className="carousel-info">
-          <div className="carousel-description" ref={carouselDescriptionRef}>
-            <p className="primary sm">{activeProject.description}</p>
-          </div>
-          <div className="carousel-title" ref={carouselTitleRef}>
-            <Link to="/pro">
-              <h1>{activeProject.title}</h1>
-            </Link>
-          </div>
-        </div>
-      </div>
+      <footer>
+        <p>Developed by Codegrid</p>
+        <p>All rights reserved &copy; 2025</p>
+      </footer>
     </div>
   );
-};
-export default Transition(Work);
+}
