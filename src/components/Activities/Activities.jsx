@@ -28,8 +28,8 @@ const Activities = () => {
     },
     {
       id: 3,
-      image: "/about/acting3.png",
-      alt: "Person in dark setting - acting/performance",
+      image: "/about/real.JPG",
+      alt: "Real Estate",
       label: "actor",
       
     },
@@ -47,15 +47,15 @@ const Activities = () => {
     },
     {
       id: 6,
-      image: "/about/portrait4.jpg",
+      image: "/about/river.JPG",
       alt: "Person in casual setting - lifestyle",
       type: "lifestyle"
     },
     {
       id: 7,
-      image: "/about/portraitgym.jpg",
+      image: "/public/about/portraitgym.jpg",
       alt: "Badminton court scene - sports activity",
-      type: "sports"
+      type: "gym"
     },
     {
       id: 8,
