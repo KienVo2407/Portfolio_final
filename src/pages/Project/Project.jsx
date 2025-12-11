@@ -1,170 +1,144 @@
 import React from "react";
 import "./Project.scss";
-
+import Overview from "../../components/Overview/Overview";
+import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
 import ParallaxImage from "../../components/ParallaxImage/ParallaxImage";
 import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
-import { Link } from "react-router-dom"; 
-import ReactLenis from "lenis/react";
-
-import Transition from "../../components/Transition/Transition"
 import Footer from "../../components/Footer/Footer";
 
-const Project = () => {
-    return (
-        <ReactLenis root>
-             <div className="page project">
-                <section className="project-header">
-                    <AnimatedCopy
-                        delay={1}
-                        animateOnScroll={false}
-                        className="primary sm"
-                    >
-                        Rebranding and Social Media planning 
-                    </AnimatedCopy>
-                    <AnimatedCopy tag="h2" delay={1}>
-                        Rejuvenation Dermatologist New Look  
-                    </AnimatedCopy>
-                </section>
 
-                <section className="project-banner-img">
-                    <div className="project-banner-img-wrapper">
-                         <ParallaxImage src="/project/RejuvMD/Banner.jpg" alt="RejuvMD Banner" />
-                    </div>
-                </section>
+// Reusable Tag component for pill tags
+function Tag({ children, color = "dark", style = {}, ...props }) {
+  return (
+    <span
+      className={`project-tag${color === "light" ? " light" : ""}`}
+      style={style}
+      {...props}
+    >
+      {children}
+    </span>
+  );
+}
 
-                <section className="project-details">
-                    <div className="details">
-                        <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-                            Overview
-                        </AnimatedCopy>
-                        <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            This project aimed to elevate Rejuvenation Dermatology Burnaby’s brand with a modern, cohesive visual 
-                            identity that supports both marketing and customer experience
-                        </AnimatedCopy>
-                    </div>
+// Reusable Dot separator
+function Dot() {
+  return (
+    <span className="project-dot" aria-hidden="true">
+      &middot;
+    </span>
+  );
+}
 
-                    <div className="details">
-                         <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-                            Category
-                        </AnimatedCopy>
-                        <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            Branding | Social Media Marketing
-                        </AnimatedCopy>
-                    </div>
-
-                    <div className="details">
-                         <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-                            Total Hours
-                        </AnimatedCopy>
-                        <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            24H
-                        </AnimatedCopy>
-                    </div>
-
-                      <div className="details">
-                         <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-                            By
-                        </AnimatedCopy>
-                        <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            Kien Vo
-                        </AnimatedCopy>
-                    </div>
-                </section>
-
-                {/* <section className="logo">
-                    
-                </section> */}
-                <section className="development">
-                    <div className="research">
-                        <div className="research-text">
-                            <div className="research-text-title">
-                            <AnimatedCopy tag="h5" animateOnScroll={true}>
-                                A.Research & Development Process
-                            </AnimatedCopy>
-                            </div>
-
-                            <div className="research-text-body">
-                            <AnimatedCopy tag="h6" animateOnScroll={true}>
-                                1. Organization Goal
-                            </AnimatedCopy>
-                            <AnimatedCopy tag="p" animateOnScroll={true}>
-                                Rejuvenation Dermatology is led by board-certified dermatologists and expertly trained general practitioners. From consultation, to procedure, to aftercare and results, 
-                                our team of experts will be with you each step of the way.
-                            </AnimatedCopy>
-
-                            <AnimatedCopy tag="h6" animateOnScroll={true}>
-                                2. Research Process
-                            </AnimatedCopy>
-                            <AnimatedCopy tag="p" animateOnScroll={true}>
-                                <li>Analyzing competitors in the wellness and aesthetics space Dermatologist</li>
-                                <li>studied color psychology, typography trends, and consumer behavior in the beauty industry</li>
-                                <li>Target audiences—primarily women and professionals aged 25–45 were seeking treatments they could trust, with an emphasis on clean aesthetics and transparency</li>
-                                
-                            </AnimatedCopy>
-
-                             <AnimatedCopy tag="h6" animateOnScroll={false}>
-                                3. Target
-                            </AnimatedCopy>
-                            <AnimatedCopy tag="p" animateOnScroll={false}>
-                               The existing brand lacked cohesion and visual appeal. 
-                               Rebranding became a necessary step to elevate perception and create a solid foundation for future digital marketing efforts.
-                            </AnimatedCopy>
-                            </div>
+// Reusable InfoBlock for bottom info grid
+function InfoBlock({ title, items }) {
+  return (
+    <div className="project-info-block">
+      <div className="project-info-title">{title}</div>
+      <ul>
+        {items.map((item, i) => (
+          <li key={i} className="project-info-item">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 
-                        </div>
-                        <div className="research-image">
-                            <AnimatedCopy animateOnScroll={true}>
-                            <img src="/project/RejuvMD/original version.jpg" alt="" />
-                            </AnimatedCopy>
-                        </div>
-                    </div>
-
-                    <div className="target">
-                        <div className="target-title" >
-                           <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            Branding Development Process</AnimatedCopy>
-                        </div>
-                            
-                        <div className="target-subtitle" tag="p" animateOnScroll={true}>
-                            <AnimatedCopy tag="p" animateOnScroll={true}>
-                               The design process began with <b> multiple logo drafts</b>, each exploring different combinations of typography, iconography such as star, drop, face line-art, and structure.  
-                            </AnimatedCopy>
-                        </div>
-                        <div className="target-container">
-                            <div className="target-container-1">
-                                <AnimatedCopy>
-                                    <h5>Elegent - Minimal</h5>
-                                    <p>The new logo design use the serif to focus on developing to make the brand being more recognition and 
-                                        memorable in the customers mind</p>
-                                </AnimatedCopy>
-                            </div>
-                            <div className="target-container-2">
-                                <AnimatedCopy >
-                                    <h5>Elegent - Minimal</h5>
-                                    <p>The new logo design use the serif to focus on developing to make the brand being more recognition and 
-                                        memorable in the customers mind</p>
-                                </AnimatedCopy>
-                            </div>
-                            <div className="target-container-3">
-                                <AnimatedCopy animateOnScroll={false} >
-                                    <h5>Elegent - Minimal</h5>
-                                    <p>The new logo design use the serif to focus on developing to make the brand being more recognition and 
-                                        memorable in the customers mind</p>
-                                </AnimatedCopy>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                     <div className="design-logo">
-                        <img src="/project/RejuvMD/logobanner-01.png" alt="logobanner" />
-
-                    </div>
-                
-                <section className="next-project">
-                    <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-                        02 - 05
+export default function Project() {
+  return (
+    <main className="project-cover-root">
+      {/* Outer vertical container */}
+      <section className="project-cover-container">
+        {/* Top content */}
+        <div className="project-cover-header">
+          {/* Animation Text */}
+          <div className="project-cover-anim-text">
+            <span className="project-cover-section">Rejuvenation</span>
+          </div>
+          {/* Main Heading */}
+          <div className="project-cover-title-row">
+            <h1 className="project-cover-title">
+              Rejuvenation Dermatologist New Look
+            </h1>
+          </div>
+        </div>
+        {/* Tags */}
+        <nav className="project-cover-tags-row" aria-label="Project categories">
+          <Tag color="light">Beauty</Tag>
+          <Dot />
+          <Tag color="light">Dermatologist</Tag>
+          <Dot />
+          <Tag>Branding</Tag>
+          <Dot />
+          <Tag>Product Design</Tag>
+          <Dot />
+          <Tag>Social Media Strategy</Tag>
+        </nav>
+        {/* Description */}
+        <div className="project-cover-desc">
+          Inspired by modern beauty, this rebranding project revitalizes Rejuvenation Dermatologist with a clear purpose: to create a trusted, elegant identity that enhances user experience and strengthens its digital presence
+        </div>
+        {/* View Live Project Button */}
+        <a
+          className="project-cover-btn"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>View Live Project</span>
+          <span className="project-cover-btn-icon">
+            <img
+              src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/59932bdc-6afd-4010-a87c-7a1926826a91"
+              alt=""
+              width={16}
+              height={16}
+              aria-hidden="true"
+            />
+          </span>
+        </a>
+      </section>
+      {/* Main image */}
+      <div className="project-cover-mainimg-wrapper">
+        <img
+          className="project-cover-mainimg"
+          src="/project/RejuvMD/Banner.jpg"
+          alt="Rejuvenation Dermatologist branding mockup"
+          draggable={false}
+        />
+      </div>
+      {/* Bottom info grid */}
+      <section className="project-cover-infogrid">
+        <div className="project-cover-infogrid-row">
+          <div className="project-cover-infogrid-col">
+            <div className="project-cover-infogrid-label">ROLE</div>
+            <div className="project-cover-infogrid-item">Product Designer</div>
+            <div className="project-cover-infogrid-item">Social Media Planning</div>
+          </div>
+          <div className="project-cover-infogrid-col">
+            <div className="project-cover-infogrid-label">TEAM</div>
+            <div className="project-cover-infogrid-item">Personal Project</div>
+          </div>
+          <div className="project-cover-infogrid-col">
+            <div className="project-cover-infogrid-label">TOOLS</div>
+            <div className="project-cover-infogrid-item">Figma, Illustrator</div>
+            <div className="project-cover-infogrid-item">Midjourney</div>
+            <div className="project-cover-infogrid-item">Google Analytics</div>
+          </div>
+          <div className="project-cover-infogrid-col">
+            <div className="project-cover-infogrid-label">TIMELINE</div>
+            <div className="project-cover-infogrid-item">4 weeks</div>
+            <div className="project-cover-infogrid-item">Total: 50 hours</div>
+          </div>
+        </div>
+       
+      </section>
+    <Overview />
+    <ProjectDetail />
+    <section className="next-project">
+                    <AnimatedCopy tag="p" animateOnScroll={true} className="primarysm">
+                        02 - 04
                     </AnimatedCopy>
                     <AnimatedCopy tag="h3" animateOnScroll={true}>
                         Next
@@ -180,13 +154,8 @@ const Project = () => {
                         KLVE Branding
                     </AnimatedCopy>
                 </section>
-             </div>
-
-
         <Footer />
-        </ReactLenis>
-        
-    )
+    </main>
+    
+  );
 }
-
-export default Transition(Project);

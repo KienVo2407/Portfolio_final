@@ -1,144 +1,170 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Project2.scss";
-import "../Project/Project.scss"
-
+import OverviewKLVE from "../../components/OverviewKLVE/OverviewKLVE";
+import ProjectDetailKLVE from "../../components/ProjectDetailKLVE/ProjectDetailKLVE";
 import ParallaxImage from "../../components/ParallaxImage/ParallaxImage";
 import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
-
-import ReactLenis from "lenis/react";
-
-import Transition from "../../components/Transition/Transition"
 import Footer from "../../components/Footer/Footer";
+import Transition from "../../components/Transition/Transition";
 
-const Project2 = () => {
-    return ( 
-        <ReactLenis root>
-             <div className="page project">
-                <section className="project-header">
-                    <AnimatedCopy
-                        delay={1}
-                        animateOnScroll={false}
-                        className="primary sm"
-                    >
-                        Rebranding and Marketing Media planning 
-                    </AnimatedCopy>
-                    <AnimatedCopy tag="h2" delay={1}>
-                        The look that you are confident with
-                    </AnimatedCopy>
-                </section>
 
-                <section className="project-banner-img">
-                    <div className="project-banner-img-wrapper">
-                         <ParallaxImage src="/project/KLVE/Producttags.jpg" alt="KLVE Banner" />
-                    </div>
-                </section>
+// Reusable Tag component for pill tags
+function Tag({ children, color = "dark", style = {}, ...props }) {
+  return (
+    <span
+      className={`project-tag${color === "light" ? " light" : ""}`}
+      style={style}
+      {...props}
+    >
+      {children}
+    </span>
+  );
+}
 
-                <section className="project-details">
-                    <div className="details">
-                        <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-                            Overview
-                        </AnimatedCopy>
-                        <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            KLVE studio – A contemporary fashion brand founded by Kien Vo,
-                             designed for those who dare to stand out. With bold styles, dynamic shapes, and vibrant colors, this brand redefines fashion as an art that reflects individuality and confidence.
-                        </AnimatedCopy>
-                    </div>
+// Reusable Dot separator
+function Dot() {
+  return (
+    <span className="project-dot" aria-hidden="true">
+      &middot;
+    </span>
+  );
+}
 
-                    <div className="details">
-                         <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-                            Category
-                        </AnimatedCopy>
-                        <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            Branding | Marketing Plan
-                        </AnimatedCopy>
-                    </div>
+// Reusable InfoBlock for bottom info grid
+function InfoBlock({ title, items }) {
+  return (
+    <div className="project-info-block">
+      <div className="project-info-title">{title}</div>
+      <ul>
+        {items.map((item, i) => (
+          <li key={i} className="project-info-item">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-                    <div className="details">
-                         <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-                            Total Hours
-                        </AnimatedCopy>
-                        <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            48H
-                        </AnimatedCopy>
-                    </div>
 
-                      <div className="details">
-                         <AnimatedCopy tag="p" animateOnScroll={true} className="primary sm">
-                            By
-                        </AnimatedCopy>
-                        <AnimatedCopy tag="h4" animateOnScroll={true}>
-                            Kien Vo
-                        </AnimatedCopy>
-                    </div>
-                </section>
+function Project() {
+  // Ensure we land at the top when navigating into this page
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
 
-                 <section className="branding-showcase">
-                    <div className="branding-header">
-                        <AnimatedCopy tag="h3" animateOnScroll={true}>
-                           New Brand
-                        </AnimatedCopy>
-                    </div>
-
-                    <div className="branding-grid">
-                        {/* Logo Comparison Row */}
-                        <div className="logo-comparison">
-                            <div className="logo-item original">
-                                <div className="logo-content">
-                                    <AnimatedCopy tag="h4" animateOnScroll={true} className="logo-title">
-                                        Original Design
-                                    </AnimatedCopy>
-                                    <div className="logo-image-wrapper">
-                                        <img src="/project/KLVE/originallogo.jpg" alt="Original Logo Design" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="logo-item final">
-                                <div className="logo-content">
-                                    <AnimatedCopy tag="h4" animateOnScroll={true} className="logo-title">
-                                        Final Logo
-                                    </AnimatedCopy>
-                                    <div className="logo-image-wrapper featured">
-                                        <img src="/project/KLVE/Logo.jpg" alt="Final Logo Design" />
-                                    </div>
-                                </div>
-                            </div>
-                         </div>
-
-                        {/* Logo Variations */}
-                        <div className="logo-variations">
-                            <div className="variation-header">
-                                <AnimatedCopy tag="h4" animateOnScroll={true}>
-                                    Logo Variations
-                                </AnimatedCopy>
-                            </div>
-                            <div className="variation-image-wrapper">
-                                <img src="/project/KLVE/Differentlogo.jpg" alt="Logo Variations" />
-                            </div>
-                        </div>
-
-                        {/* Brand Colors */}
-                        <div className="brand-colors">
-                            <div className="colors-header">
-                                <AnimatedCopy tag="h4" animateOnScroll={true}>
-                                    Brand Color Palette
-                                </AnimatedCopy>
-                            </div>
-                            <div className="colors-image-wrapper">
-                                <img src="/project/KLVE/color.jpg" alt="Brand Color Palette" />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+  return (
+    <main className="project-cover-root">
+      {/* Outer vertical container */}
+      <section className="project-cover-container">
+        {/* Top content */}
+        <div className="project-cover-header">
+          {/* Animation Text */}
+          <div className="project-cover-anim-text">
+            <span className="project-cover-section">KLVE Studio</span>
           </div>
-        <Footer />
-        </ReactLenis>
+          {/* Main Heading */}
+          <div className="project-cover-title-row">
+            <h1 className="project-cover-title">
+              KLVE Studio - Fashion Brand
+            </h1>
+          </div>
+        </div>
+        {/* Tags */}
+        <nav className="project-cover-tags-row" aria-label="Project categories">
+          <Tag color="light">Fashion</Tag>
+          <Dot />
+          <Tag >Branding</Tag>
+          <Dot/>
+          <Tag>Startup</Tag>
+          <Dot />
+          <Tag>Product Design</Tag>
+          <Dot />
+          <Tag>Marketing Plan</Tag>
+        </nav>
+        {/* Description */}
+        <div className="project-cover-desc">
+          KLVE is a fictional inspirational fashion brand designed with a main mission design for those who dare to show their personality through the look of fashion. The projects is a great example of myself as a Analysis, Marketer and Designer.
+        </div>
+        {/* View Live Project Button */}
+        <a
+          className="project-cover-btn"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>View Live Project</span>
+          <span className="project-cover-btn-icon">
+            <img
+              src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/59932bdc-6afd-4010-a87c-7a1926826a91"
+              alt=""
+              width={16}
+              height={16}
+              aria-hidden="true"
+            />
+          </span>
+        </a>
+      </section>
+      {/* Main image */}
+      <div className="project-cover-mainimg-wrapper">
+        <img
+          className="project-cover-mainimg"
+          src="/project/KLVE/Banner.jpg"
+          alt="KLVE Studio branding mockup"
+          draggable={false}
+        />
+      </div>
+      {/* Bottom info grid */}
+      <section className="project-cover-infogrid">
+        <div className="project-cover-infogrid-row">
+          <div className="project-cover-infogrid-col">
+            <div className="project-cover-infogrid-label">ROLE</div>
+            <div className="project-cover-infogrid-item">Product Designer</div>
+            <div className="project-cover-infogrid-item">Business Analyst</div>
+          </div>
+          <div className="project-cover-infogrid-col">
+            <div className="project-cover-infogrid-label">TEAM</div>
+            <div className="project-cover-infogrid-item">Personal Project</div>
+          </div>
+          <div className="project-cover-infogrid-col">
+            <div className="project-cover-infogrid-label">TOOLS</div>
+            <div className="project-cover-infogrid-item">Illustrator</div>
+            <div className="project-cover-infogrid-item">Midjourney</div>
+            <div className="project-cover-infogrid-item">Google Analytics</div>
+             <div className="project-cover-infogrid-item">Trello</div>
+          </div>
+          <div className="project-cover-infogrid-col">
+            <div className="project-cover-infogrid-label">TIMELINE</div>
+            <div className="project-cover-infogrid-item">3 weeks</div>
+            <div className="project-cover-infogrid-item">Total: 40 hours</div>
+          </div>
+        </div>
        
-    );
-};
+      </section>
+    <OverviewKLVE />
+    <ProjectDetailKLVE />
+    <section className="next-project">
+                    <AnimatedCopy tag="p" animateOnScroll={true} className="primarysm">
+                        03 - 04
+                    </AnimatedCopy>
+                    <AnimatedCopy tag="h3" animateOnScroll={true}>
+                        Next
+                    </AnimatedCopy>
 
+                    <div className="next-project-img">
+                        <div className="next-project-img-wrapper">
+                          <ParallaxImage src="/project/CareerCompass/Banner.png" alt="Career Compass Banner" />
+                        </div>
+                    </div>
 
-export default Transition(Project2);
+                    <AnimatedCopy tag="h4" animateOnScroll={true}>
+                        Career Compass
+                    </AnimatedCopy>
+                </section>
+        <Footer />
+    </main>
+    
+  );
+}
 
-
+export default Transition(Project);

@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer">
             <div className="footer-row">
                 <div className="footer-contact">
-                    <h3>
+                    <h3 style={{ fontSize: "3.5rem" }}>
                         Let’s Collaborate <br />
                         <span>@</span>kienvo.com
                     </h3>

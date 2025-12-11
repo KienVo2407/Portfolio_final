@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import projects from "../../data/projects";
 import "./Work.scss";
+import Footer from "../../components/Footer/Footer";
 
 export default function Work() {
   const workContainer = useRef(null);
@@ -102,10 +103,7 @@ export default function Work() {
 
       <section ref={workContainer} className="work"></section>
 
-      <footer>
-        <p>Developed by Codegrid</p>
-        <p>All rights reserved &copy; 2025</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

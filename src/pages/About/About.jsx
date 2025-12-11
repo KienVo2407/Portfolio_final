@@ -19,27 +19,27 @@ const About = () => {
      const services = [
     {
       number: '01',
-      title: 'BRAND DESIGNER',
-      description: 'Developing comprehensive marketing strategies that drive engagement and build meaningful connections between brands and customers.',
-      image: '/project/Design/cocktailposter.jpg'
+      title: 'Product Marketing Intern',
+      description: 'As a Product Marketing Intern for TELUS’s digital HR platform, creating B2B messaging and positioning to help employers understand the value of our solution.',
+      image: '/about/TELUS_Digital.jpg'
     },
     {
       number: '02',
-      title: 'MARKETING',
-      description: 'Creating visual identities that resonate with your audience and communicate your brand values through strategic design solutions.',
-      image: '/project/Design/jelwery.jpg'
+      title: 'Social Media Creation',
+      description: 'Introducing the campaigns and the potential of products in the market to various distribution beauty agents, clinic and spa business owners.',
+      image: '/about/lassieel.jpg'
     },
     {
       number: '03',
-      title: 'VIDEO PLANNING & EDITING',
-      description: 'Crafting immersive visual experiences that push the boundaries of digital storytelling and user interaction.',
-      image: '/project/Design/cocktail.jpg'
+      title: 'Social Media Marketing',
+      description: 'Planned, created, and managed social media campaigns and newsletters to promote events, share industry insights, and engage members, ensuring consistent and professional communication across all platforms.',
+      image: '/about/realestate.jpg'
     },
     {
       number: '04',
-      title: 'WEB DEVELOP',
-      description: 'Building responsive, performant websites that combine beautiful design with seamless functionality and user experience.',
-      image: '/project/Design/cocktailposter.jpg'
+      title: 'Event Coordinator',
+      description: 'Planning with a team to run an event for around 500 people celebrating Tet holiday including plenty of activities and food.',
+      image: '/about/vvyc.png'
     }
   ];
 
@@ -51,7 +51,7 @@ const About = () => {
             <div className="page about">
                 <section className="about-header">
                     <AnimatedCopy animateOnScroll={false} delay={0.5} tag="h1">
-                        EST
+                        IN
                         
                     </AnimatedCopy>
                      <AnimatedCopy animateOnScroll={false} delay={0.5} tag="h1">
@@ -95,14 +95,18 @@ const About = () => {
                  <section className="services">
                     <div className="services-header">
                         <AnimatedCopy tag="h2" animateOnScroll={true}>
-                        Services
+                        Experiences
                         </AnimatedCopy>
                     </div>
                     
                     
                     <div className="services-list">
                         {services.map((service, index) => (
-                            <div key={index} className="service-item">
+                            <div
+                              key={index}
+                              className="service-item"
+                              style={{ zIndex: services.length - index }}
+                            >
                                 <div className="service-number">
                                     <AnimatedCopy tag="h1" animateOnScroll={true} delay={index * 0.1}>
                                         {service.number}

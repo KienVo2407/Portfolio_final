@@ -28,10 +28,57 @@ const Home = () => {
   const stickyWorkHeaderRef = useRef(null);
   const homeWorkRef = useRef(null);
   const scrollIndicatorRef = useRef(null);
-  //  const leftImagesRef = useRef([]); 
-  // const rightImagesRef = useRef([]);
+ 
+
+useEffect(() => {
+  const video = document.querySelector(".hero-video");
+  if (!video) return;
+
+  // Required for autoplay
+  video.muted = true;
+  video.play().catch(() => {});
+
+  let userAllowedSound = false; // Track if the user interacted at least once
+
+  // Enable sound only after user interaction (browser policy)
+  const allowSound = () => {
+    userAllowedSound = true;
+    video.muted = false;
+    video.volume = 1;
+  };
+
+  window.addEventListener("click", allowSound, { once: true });
+  window.addEventListener("scroll", allowSound, { once: true });
+
+  const handleScroll = () => {
+    const heroHeight = window.innerHeight * 0.7;
+    const scrollY = window.scrollY;
+
+    // SCROLL DOWN → mute
+    if (scrollY > heroHeight) {
+      video.muted = true;
+      video.volume = 0;
+    } 
+    // SCROLL UP INTO HERO → unmute (only if user allowed)
+    else {
+      if (userAllowedSound) {
+        video.muted = false;
+        video.volume = 1;
+      }
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
 
   useEffect(() => {
+
+
     const handleResize = () => {
       ScrollTrigger.refresh();
     };
@@ -142,68 +189,7 @@ const Home = () => {
         2.75
       );
 
-      // // Image animations - First set appears with first title
-      // masterTimeline
-      // .to(
-      //   [leftImages[0], rightImages[0]],
-      //   {
-      //     opacity: 1,
-      //     x: 0,
-      //     scale: 1,
-      //     duration: 0.4,
-      //     ease: "power2.out",
-      //   },
-      //   0.5
-      // )
-      // // First set disappears
-      // .to(
-      //   [leftImages[0], rightImages[0]],
-      //   {
-      //     opacity: 0,
-      //     x: -50,
-      //     scale: 0.9,
-      //     duration: 0.3,
-      //     ease: "power2.in",
-      //   },
-      //   1.2
-      // )
-      // // Second set appears with second title
-      // .to(
-      //   [leftImages[1], rightImages[1]],
-      //   {
-      //     opacity: 1,
-      //     x: 0,
-      //     scale: 1,
-      //     duration: 0.4,
-      //     ease: "power2.out",
-      //   },
-      //   1.5
-      // )
-      // // Second set disappears
-      // .to(
-      //   [leftImages[1], rightImages[1]],
-      //   {
-      //     opacity: 0,
-      //     x: 50,
-      //     scale: 0.9,
-      //     duration: 0.3,
-      //     ease: "power2.in",
-      //   },
-      //   2.7
-      // )
-      // // Third set appears with third title
-      // .to(
-      //   [leftImages[2], rightImages[2]],
-      //   {
-      //     opacity: 1,
-      //     x: 0,
-      //     scale: 1,
-      //     duration: 0.4,
-      //     ease: "power2.out",
-      //   },
-      //   3
-      // );
-
+      
     const workHeaderSection = stickyWorkHeaderRef.current;
     const homeWorkSection = homeWorkRef.current;
 
@@ -232,21 +218,7 @@ const Home = () => {
     };
   }, []); 
 
-  //   // Image data for each title section
-  // const sectionImages = [
-  //   {
-  //     left: "/project/Design/poster1.jpg",
-  //     right: "/project/Design/poster2.jpg"
-  //   },
-  //   {
-  //     left: "/project/Design/poster3.jpg", 
-  //     right: "/project/Design/poster4.jpg"
-  //   },
-  //   {
-  //     left: "/project/Design/poster5.jpg",
-  //     right: "/project/Design/poster6.jpg"
-  //   }
-  // ];
+  
 
   return (
     <ReactLenis root>
@@ -254,7 +226,16 @@ const Home = () => {
         <section className="hero">
           <div className="hero-img">
             {/* <img src="/about/baby.JPG" alt="Baby" /> */}
-            <video width="100%" src={BannerVideo} autoPlay muted loop></video>
+            <video 
+              width="100%" 
+              src={BannerVideo} 
+              autoPlay 
+              loop 
+              muted
+              playsInline
+              className="hero-video"
+            />
+
           </div>
 
           <div className="hero-header">
@@ -342,11 +323,11 @@ const Home = () => {
                   2,
                   "0"
                 )} - ${String(workItems.length).padStart(2, "0")}`}</p>
-                <h3>{work.title}</h3>
+                <h3 style={{ fontSize: "2.5rem" }}>{work.title}</h3>
                 <div className="work-item-img">
                   <img src={work.image} alt={work.title} />
                 </div>
-                <h4>{work.category}</h4>
+                <h4 style={{ fontSize: "1.5rem" }}>{work.category}</h4>
               </Link>
             ))}
           </div>

@@ -121,6 +121,9 @@
   transform: translate(-50%, -50%);
   text-align: center;
   will-change: transform, opacity;
+  h3{
+    font-size: 1.6rem;
+  }
 }
 
 // Add scroll indicator styles

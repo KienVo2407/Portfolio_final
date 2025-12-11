@@ -9,20 +9,20 @@ const projects = [
   {
     id: 2,
     title: "KLVE",
-    description: "Branding + Marketing",
-    image: "/project/KLVE/Producttags.jpg",
+    description: "The entrepeneurial journey of creating a fashion brand",
+    image: "//project/KLVE/Banner.jpg",
     route: "/KLVEstudio",
   },
   {
     id: 3,
-    title: "Kajaa Advertisement",
-    description: "Video directing",
-    image: "/project/KLVE/Banner.jpg",
+    title: "CareerCompass",
+    description: "The go-to platform for career support and guidance",
+    image: "/project/CareerCompass/Banner.png",
   },
   {
     id: 4,
     title: "Landmark Website",
-    description: "UI/UX",
+    description: "Redesigning Landmark's online presence for better user experience",
     image: "/project/Landmark/Landmark.png",
   },
 ];

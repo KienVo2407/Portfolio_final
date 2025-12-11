@@ -32,12 +32,12 @@ export const galleryData = [
   },
 {
     id: 4,
-    title: "Gentle Monster Marketing Strategy",
-    description: "An creative marketing plan for world-renowned eyewear brand.",
-    image: "/project/Additional/Safesoftware.png",
+    title: "Lumina Flow Business Pitch Deck",
+    description: "Lumina Flow is an AI-powered financial OS for Canadian freelancers, automating bookkeeping, taxes, and multi-currency transactions.",
+    image: "/project/Additional/LuminaFlow.png",
     tags: ["Marketing", "Design"],
     category: "Marketing",
     mediaType: "pdf", 
-    mediaUrl: "/project/Additional/PorscheCase.pdf",
+    mediaUrl: "/project/Additional/LuminaFlow.pdf",
   }
 ];

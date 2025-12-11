@@ -16,7 +16,7 @@ const ContactForm = () => {
             <div className="contact-form-row">
                 <div className="contact-form-col">
                     <div className="contact-form-header">
-                        <h3>Connect to me</h3>
+                        <h3 style={{ fontSize: "3.5rem" }}>Connect to me</h3>
 
                         <p>
                             Have a fantastic idea in mind? Let's bring it to real life together.
