@@ -53,7 +53,7 @@ const Activities = () => {
     },
     {
       id: 7,
-      image: "/about/gym.PNG",
+      image: "/about/portraitgym.jpg",
       alt: "Badminton court scene - sports activity",
       type: "gym"
     },
