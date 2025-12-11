@@ -157,7 +157,7 @@ function Project() {
                         </div>
                     </div>
 
-                    <AnimatedCopy tag="h4" animateOnScroll={true}>
+                    <AnimatedCopy tag="h4" animateOnScroll={true} style={{ color: "black" }}>
                         Career Compass
                     </AnimatedCopy>
                 </section>

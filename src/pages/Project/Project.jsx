@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Project.scss";
 import Overview from "../../components/Overview/Overview";
 import ProjectDetail from "../../components/ProjectDetail/ProjectDetail";
 import ParallaxImage from "../../components/ParallaxImage/ParallaxImage";
-import AnimatedCopy from "../../components/AnimatedCopy/AnimatedCopy";
 import Footer from "../../components/Footer/Footer";
-
+import Transition from "../../components/Transition/Transition";
+import { color } from "framer-motion";
 
 // Reusable Tag component for pill tags
 function Tag({ children, color = "dark", style = {}, ...props }) {
@@ -137,22 +138,24 @@ export default function Project() {
     <Overview />
     <ProjectDetail />
     <section className="next-project">
-                    <AnimatedCopy tag="p" animateOnScroll={true} className="primarysm">
+                    <p className="primarysm">
                         02 - 04
-                    </AnimatedCopy>
-                    <AnimatedCopy tag="h3" animateOnScroll={true}>
+                    </p>
+                    <h3>
                         Next
-                    </AnimatedCopy>
+                    </h3>
 
-                    <div className="next-project-img">
-                        <div className="next-project-img-wrapper">
-                          <ParallaxImage src="/project/KLVE/Banner.jpg" alt="KLVE Banner" />
-                        </div>
-                    </div>
+                    <Link to="/KLVEstudio" className="next-project-link">
+                      <div className="next-project-img">
+                          <div className="next-project-img-wrapper">
+                            <img src="/project/KLVE/Banner.jpg" alt="KLVE Banner" />
+                          </div>
+                      </div>
 
-                    <AnimatedCopy tag="h4" animateOnScroll={true}>
-                        KLVE Branding
-                    </AnimatedCopy>
+                      <h4 style={{ color: "black" }}>
+                          KLVE Branding
+                      </h4>
+                    </Link>
                 </section>
         <Footer />
     </main>
