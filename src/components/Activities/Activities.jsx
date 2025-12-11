@@ -30,9 +30,8 @@ const Activities = () => {
       id: 3,
       image: "/about/acting3.png",
       alt: "Person in dark setting - acting/performance",
-      type: "acting",
       label: "actor",
-      labelPosition: "top-right"
+      
     },
     {
       id: 4,
