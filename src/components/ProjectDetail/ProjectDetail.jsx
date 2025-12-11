@@ -461,8 +461,17 @@ export default function ProjectDetail() {
                 <div className="pd-box">
                     
                   <div className="pd-body">
+                   <ul >
+                      <li>
+                        Redesigned homepage to communicate trust and streamline booking flow.
+                    </li>
+                      <li>
+                        
+                          Simplify homepage with clear highlight CTA, booking button, key services
+                      </li>
+                    
+                    </ul>
                    
-                    <p>Redesigned homepage to communicate trust and streamline booking flow.</p>
                   </div>
                   
                 </div>
@@ -485,6 +494,7 @@ export default function ProjectDetail() {
                 <div className="pd-box">
                   <div className="pd-body">
                     <p>Developed a comprehensive social media strategy to enhance online presence and engagement.</p>
+                    
                   </div>
                   
                 </div>
